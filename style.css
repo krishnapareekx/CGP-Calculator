@@ -1,0 +1,532 @@
+/* =============================================
+   CGPA CALCULATOR - style.css
+   by Krishna
+   ============================================= */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #e0f2fe 0%, #f0f9ff 40%, #1e293b 100%);
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  padding: 24px 12px;
+}
+
+/* ── HEADER ── */
+.header {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.header-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background: linear-gradient(90deg, #0ea5e9, #6366f1);
+  border-radius: 20px;
+  padding: 10px 28px;
+  margin-bottom: 12px;
+  box-shadow: 0 4px 24px #0ea5e940;
+  font-size: 26px;
+  font-weight: 800;
+  color: #fff;
+  letter-spacing: 1px;
+}
+
+.header-badge span:first-child {
+  font-size: 28px;
+}
+
+.header-sub {
+  color: #334155;
+  font-size: 15px;
+  margin-top: 4px;
+}
+
+/* ── CONTAINER ── */
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* ── CARD ── */
+.card {
+  background: rgba(255, 255, 255, 0.82);
+  backdrop-filter: blur(12px);
+  border-radius: 20px;
+  padding: 24px;
+  box-shadow: 0 4px 24px #6366f120;
+  border: 1.5px solid #bae6fd;
+}
+
+/* ── GRADE REFERENCE ── */
+.grade-ref-section {
+  margin-bottom: 28px;
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 2px 20px #0ea5e920;
+}
+
+.section-title {
+  color: #0369a1;
+  font-weight: 700;
+  font-size: 15px;
+  margin-bottom: 16px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  text-align: center;
+}
+
+.grade-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+  gap: 12px;
+}
+
+.grade-card {
+  border: 2px solid;
+  border-radius: 14px;
+  padding: 14px 10px;
+  text-align: center;
+  cursor: default;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.grade-card:hover {
+  transform: scale(1.06);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+}
+
+.grade-letter {
+  font-size: 28px;
+  font-weight: 900;
+}
+
+.grade-name {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-top: 2px;
+}
+
+.grade-pts {
+  font-size: 13px;
+  font-weight: 700;
+  margin-top: 4px;
+}
+
+/* ── MAIN LAYOUT ── */
+.main-layout {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+
+/* ── SUBJECTS SECTION ── */
+.subjects-section {
+  flex: 1 1 520px;
+}
+
+.subjects-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.empty-msg {
+  text-align: center;
+  padding: 40px 0;
+  color: #94a3b8;
+  font-size: 16px;
+}
+
+/* ── SUBJECT ROW ── */
+.subject-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  border-radius: 14px;
+  padding: 14px 16px;
+  margin-bottom: 12px;
+  background: linear-gradient(135deg, #f0f9ff, #e0f2fe);
+  border: 1.5px solid #bae6fd;
+  border-left: 4px solid #0ea5e9;
+  box-shadow: 0 2px 10px #0ea5e918;
+  transition: box-shadow 0.2s;
+}
+
+.subject-row:hover {
+  box-shadow: 0 4px 20px #6366f130;
+}
+
+/* Number badge */
+.subject-num {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #0ea5e9, #6366f1);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 13px;
+  flex-shrink: 0;
+}
+
+/* Subject name */
+.subject-name-text {
+  flex: 1 1 140px;
+  font-weight: 700;
+  color: #1e3a5f;
+  font-size: 15px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-width: 100px;
+}
+
+.subject-name-text:hover {
+  color: #0ea5e9;
+}
+
+.edit-icon {
+  font-size: 12px;
+  color: #94a3b8;
+}
+
+.subject-name-input {
+  flex: 1 1 140px;
+  border: 2px solid #0ea5e9;
+  border-radius: 8px;
+  padding: 6px 10px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #1e3a5f;
+  background: #fff;
+  outline: none;
+  min-width: 100px;
+}
+
+/* Credits control */
+.credits-wrap {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.credit-label {
+  font-size: 12px;
+  color: #64748b;
+  font-weight: 600;
+}
+
+.credit-controls {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.btn-circle {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  border: 1.5px solid #0ea5e9;
+  background: #fff;
+  color: #0ea5e9;
+  font-weight: 800;
+  font-size: 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  transition: background 0.15s;
+  line-height: 1;
+}
+
+.btn-circle:hover {
+  background: #e0f2fe;
+}
+
+.credit-input {
+  width: 42px;
+  text-align: center;
+  border: 1.5px solid #bae6fd;
+  border-radius: 8px;
+  padding: 4px 0;
+  font-weight: 700;
+  font-size: 14px;
+  color: #0369a1;
+  background: #fff;
+  outline: none;
+}
+
+/* Grade selector */
+.grade-wrap {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.grade-label {
+  font-size: 12px;
+  color: #64748b;
+  font-weight: 600;
+}
+
+.grade-select {
+  border: 2px solid #0ea5e9;
+  border-radius: 8px;
+  padding: 5px 8px;
+  font-weight: 800;
+  font-size: 14px;
+  color: #0ea5e9;
+  background: #fff;
+  cursor: pointer;
+  outline: none;
+  transition: border-color 0.2s, color 0.2s;
+}
+
+/* Points badge */
+.pts-badge {
+  background: #0ea5e9;
+  color: #fff;
+  border-radius: 8px;
+  padding: 4px 10px;
+  font-weight: 800;
+  font-size: 13px;
+  min-width: 40px;
+  text-align: center;
+  transition: background 0.2s;
+}
+
+/* Delete button */
+.btn-delete {
+  background: #fef2f2;
+  border: 1.5px solid #fca5a5;
+  color: #dc2626;
+  border-radius: 8px;
+  padding: 6px 10px;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 16px;
+  transition: background 0.15s;
+  flex-shrink: 0;
+}
+
+.btn-delete:hover {
+  background: #fee2e2;
+}
+
+/* ── BUTTONS ── */
+.btn-add {
+  background: linear-gradient(90deg, #0ea5e9, #6366f1);
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  padding: 9px 18px;
+  font-weight: 700;
+  font-size: 14px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  box-shadow: 0 2px 10px #0ea5e940;
+  transition: opacity 0.15s;
+}
+
+.btn-add:hover {
+  opacity: 0.85;
+}
+
+.btn-dashed {
+  background: transparent;
+  border: 2px dashed #0ea5e9;
+  color: #0ea5e9;
+  border-radius: 10px;
+  padding: 9px 24px;
+  font-weight: 700;
+  font-size: 14px;
+  cursor: pointer;
+  width: 100%;
+  transition: background 0.15s;
+}
+
+.btn-dashed:hover {
+  background: #f0f9ff;
+}
+
+.btn-reset {
+  margin-top: 20px;
+  background: linear-gradient(90deg, #ef4444, #f97316);
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  padding: 9px 20px;
+  font-weight: 700;
+  font-size: 13px;
+  cursor: pointer;
+  width: 100%;
+  box-shadow: 0 2px 8px #ef444430;
+  transition: opacity 0.15s;
+}
+
+.btn-reset:hover {
+  opacity: 0.85;
+}
+
+/* ── CGPA PANEL ── */
+.cgpa-panel {
+  flex: 0 1 300px;
+  min-width: 260px;
+  position: sticky;
+  top: 20px;
+}
+
+.cgpa-card {
+  text-align: center;
+}
+
+.ring-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+.label-box {
+  background: #f0f9ff;
+  border: 2px solid #bae6fd;
+  border-radius: 12px;
+  padding: 10px 16px;
+  margin-bottom: 20px;
+  transition: all 0.3s;
+}
+
+.label-text {
+  font-weight: 800;
+  font-size: 16px;
+  color: #0ea5e9;
+}
+
+/* Stats */
+.stats-box {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.stat-row {
+  background: #f0f9ff;
+  border-radius: 10px;
+  padding: 10px 16px;
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid #bae6fd;
+}
+
+.stat-name {
+  color: #64748b;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.stat-val {
+  color: #0369a1;
+  font-weight: 800;
+  font-size: 14px;
+}
+
+/* Grade distribution */
+.dist-title {
+  color: #64748b;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+}
+
+.dist-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  justify-content: center;
+}
+
+.dist-item {
+  border: 1.5px solid;
+  border-radius: 8px;
+  padding: 4px 10px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.dist-grade {
+  font-weight: 800;
+  font-size: 13px;
+}
+
+.dist-count {
+  border-radius: 50%;
+  width: 18px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  font-weight: 800;
+  color: #fff;
+}
+
+/* ── FOOTER ── */
+.footer {
+  text-align: center;
+  margin-top: 32px;
+  color: #94a3b8;
+  font-size: 13px;
+  padding-bottom: 20px;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 600px) {
+  .header-badge {
+    font-size: 20px;
+    padding: 8px 18px;
+  }
+
+  .grade-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .subject-row {
+    gap: 8px;
+  }
+
+  .cgpa-panel {
+    position: static;
+    flex: 1 1 100%;
+  }
+}
+
+/* ── INPUT NUMBER ARROW HIDE ── */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type="number"] {
+  -moz-appearance: textfield;
+}

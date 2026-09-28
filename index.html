@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CGPA Calculator by Krishna</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="app">
+
+      <!-- HEADER -->
+      <div class="header">
+        <div class="header-badge">
+          <span>🎓</span>
+          <span>CGPA Calculator</span>
+        </div>
+        <p class="header-sub">Add subjects, assign grades &amp; calculate your CGPA instantly</p>
+      </div>
+
+      <div class="container">
+
+        <!-- GRADE REFERENCE CARDS -->
+        <div class="card grade-ref-section">
+          <h2 class="section-title">📋 Grade Scale Reference</h2>
+          <div class="grade-grid">
+            <div class="grade-card" style="background:#f0fdf4; border-color:#bbf7d0;">
+              <div class="grade-letter" style="color:#16a34a;">O</div>
+              <div class="grade-name" style="color:#16a34a;">Outstanding</div>
+              <div class="grade-pts" style="color:#16a34a;">10 Pts</div>
+            </div>
+            <div class="grade-card" style="background:#f0fdfa; border-color:#99f6e4;">
+              <div class="grade-letter" style="color:#0d9488;">A+</div>
+              <div class="grade-name" style="color:#0d9488;">Excellent</div>
+              <div class="grade-pts" style="color:#0d9488;">9 Pts</div>
+            </div>
+            <div class="grade-card" style="background:#ecfeff; border-color:#a5f3fc;">
+              <div class="grade-letter" style="color:#0891b2;">A</div>
+              <div class="grade-name" style="color:#0891b2;">Very Good</div>
+              <div class="grade-pts" style="color:#0891b2;">8 Pts</div>
+            </div>
+            <div class="grade-card" style="background:#eff6ff; border-color:#bfdbfe;">
+              <div class="grade-letter" style="color:#2563eb;">B+</div>
+              <div class="grade-name" style="color:#2563eb;">Good</div>
+              <div class="grade-pts" style="color:#2563eb;">7 Pts</div>
+            </div>
+            <div class="grade-card" style="background:#f5f3ff; border-color:#ddd6fe;">
+              <div class="grade-letter" style="color:#7c3aed;">B</div>
+              <div class="grade-name" style="color:#7c3aed;">Above Avg</div>
+              <div class="grade-pts" style="color:#7c3aed;">6 Pts</div>
+            </div>
+            <div class="grade-card" style="background:#faf5ff; border-color:#e9d5ff;">
+              <div class="grade-letter" style="color:#9333ea;">C</div>
+              <div class="grade-name" style="color:#9333ea;">Average</div>
+              <div class="grade-pts" style="color:#9333ea;">5 Pts</div>
+            </div>
+            <div class="grade-card" style="background:#fffbeb; border-color:#fde68a;">
+              <div class="grade-letter" style="color:#b45309;">P</div>
+              <div class="grade-name" style="color:#b45309;">Pass</div>
+              <div class="grade-pts" style="color:#b45309;">4 Pts</div>
+            </div>
+            <div class="grade-card" style="background:#fef2f2; border-color:#fecaca;">
+              <div class="grade-letter" style="color:#dc2626;">F</div>
+              <div class="grade-name" style="color:#dc2626;">Fail</div>
+              <div class="grade-pts" style="color:#dc2626;">0 Pts</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- MAIN LAYOUT -->
+        <div class="main-layout">
+
+          <!-- SUBJECTS SECTION -->
+          <div class="subjects-section">
+            <div class="card">
+              <div class="subjects-header">
+                <h2 class="section-title" style="margin:0;">📚 My Subjects</h2>
+                <button class="btn-add" onclick="addSubject()">➕ Add Subject</button>
+              </div>
+
+              <div id="empty-msg" class="empty-msg" style="display:none;">
+                No subjects yet. Click <b>"Add Subject"</b> to begin!
+              </div>
+
+              <div id="subjects-list"></div>
+
+              <div id="add-another-btn" style="margin-top:16px; display:none;">
+                <button class="btn-dashed" onclick="addSubject()">➕ Add Another Subject</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- CGPA PANEL -->
+          <div class="cgpa-panel">
+            <div class="card cgpa-card">
+              <h2 class="section-title">🏅 Your CGPA</h2>
+
+              <!-- Circular Ring -->
+              <div class="ring-wrapper">
+                <svg width="170" height="170" viewBox="0 0 170 170">
+                  <circle cx="85" cy="85" r="70" fill="none" stroke="#e2e8f0" stroke-width="14"/>
+                  <defs>
+                    <linearGradient id="cgpaGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                      <stop offset="0%" stop-color="#0ea5e9"/>
+                      <stop offset="50%" stop-color="#6366f1"/>
+                      <stop offset="100%" stop-color="#8b5cf6"/>
+                    </linearGradient>
+                  </defs>
+                  <circle id="cgpa-ring" cx="85" cy="85" r="70" fill="none"
+                    stroke="url(#cgpaGrad)" stroke-width="14"
+                    stroke-linecap="round"
+                    stroke-dasharray="439.82"
+                    stroke-dashoffset="439.82"
+                    transform="rotate(-90 85 85)"
+                    style="transition: stroke-dashoffset 0.6s ease;"/>
+                  <text id="cgpa-value" x="85" y="80" text-anchor="middle"
+                    fill="#1e3a5f" font-size="32" font-weight="900"
+                    font-family="'Segoe UI', sans-serif">0.00</text>
+                  <text x="85" y="100" text-anchor="middle"
+                    fill="#64748b" font-size="12" font-weight="600"
+                    font-family="'Segoe UI', sans-serif">out of 10</text>
+                </svg>
+              </div>
+
+              <!-- Performance Label -->
+              <div id="cgpa-label-box" class="label-box">
+                <span id="cgpa-label-text" class="label-text">No Subjects ➕</span>
+              </div>
+
+              <!-- Stats -->
+              <div class="stats-box">
+                <div class="stat-row">
+                  <span class="stat-name">📦 Subjects</span>
+                  <span class="stat-val" id="stat-subjects">0</span>
+                </div>
+                <div class="stat-row">
+                  <span class="stat-name">📊 Total Credits</span>
+                  <span class="stat-val" id="stat-credits">0</span>
+                </div>
+                <div class="stat-row">
+                  <span class="stat-name">✨ Weighted Pts</span>
+                  <span class="stat-val" id="stat-weighted">0</span>
+                </div>
+              </div>
+
+              <!-- Grade Distribution -->
+              <div id="grade-dist-section" style="margin-top:20px; display:none;">
+                <div class="dist-title">Grade Distribution</div>
+                <div id="grade-dist" class="dist-grid"></div>
+              </div>
+
+              <!-- Reset -->
+              <button class="btn-reset" onclick="resetAll()">🔄 Reset All</button>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- FOOTER -->
+        <div class="footer">
+          💡 <b>Tip:</b> Click on the subject name ✏️ to edit it. Use +/− to adjust credits. Select a grade from the dropdown.
+        </div>
+
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
